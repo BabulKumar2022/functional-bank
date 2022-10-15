@@ -1,10 +1,25 @@
+function getInputValue(inputId){
+    const Input = document.getElementById(inputId);
+    const AmountText = Input.value;
+    const AmountValue = parseInt(AmountText)
+    //clear input field
+    Input.value = ''
 
-document.getElementById('deposit-submit').addEventListener('click', function(){
+    return AmountValue;
+}
+
+ 
+
+
+
+
+    document.getElementById('deposit-submit').addEventListener('click', function(){
     // console.log('deposit-button clicked')
-    const depositInput = document.getElementById('deposit-input');
-    const depositAmountText = depositInput.value;
-    const depositAmount = parseInt(depositAmountText)
+    // const depositInput = document.getElementById('deposit-input');
+    // const depositAmountText = depositInput.value;
+    // const depositAmount = parseInt(depositAmountText)
     // console.log(depositAmount);
+    depositAmount = getInputValue('deposit-input');
 
     //get current deposit
     const depositTotal = document.getElementById('deposit-total');
@@ -19,18 +34,18 @@ document.getElementById('deposit-submit').addEventListener('click', function(){
     const balanceTotalText = balanceTotal.innerText;
     const previousBalanceTotal = parseInt(balanceTotalText);
     balanceTotal.innerText = previousBalanceTotal + depositAmount;
-    //clear input field
-    depositInput.value = ''
+ 
 })
-
+//------------------------------------------------------------------------------
 // function for withdraw
 
-document.getElementById('withdraw-submit').addEventListener('click', function(){
+    document.getElementById('withdraw-submit').addEventListener('click', function(){
     // console.log('clicked')
-    const withdrawInput = document.getElementById('withdraw-input');
-    const withdrawAmountText = withdrawInput.value;
-    // console.log(withdrawAmountText);
-    const withdrawAmount = parseInt(withdrawAmountText);
+    // const withdrawInput = document.getElementById('withdraw-input');
+    // const withdrawAmountText = withdrawInput.value;
+    // // console.log(withdrawAmountText);
+    // const withdrawAmount = parseInt(withdrawAmountText);
+    const withdrawAmount = getInputValue('withdraw-input');
 
     //get current withdraw
     const withdrawTotal = document.getElementById('withdraw-total');
@@ -45,7 +60,5 @@ document.getElementById('withdraw-submit').addEventListener('click', function(){
     const balanceTotalText = balanceTotal.innerText;
     const previousBalanceTotal = parseInt(balanceTotalText);
     balanceTotal.innerText = previousBalanceTotal - withdrawAmount;
-    //clear input field
-
-    withdrawInput.value = '';
+   
 })
